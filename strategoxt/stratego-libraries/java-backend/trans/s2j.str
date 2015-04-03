@@ -265,6 +265,7 @@ rules
          IStrategoTerm result;
          try {
            result = context.invokeStrategyCLI(context.getStrategyCollector().getStrategyExecutor("~x_main"), "~x_name", args);
+           System.out.println("Completed normally");
          } finally {
            context.getIOAgent().closeAllFiles();
          }
@@ -274,8 +275,13 @@ rules
            context.setStandAlone(false);
            System.exit(1); 
          } else {
-           System.out.println(result);
+           System.out.println("Result: " + result);
+           try {
            context.setStandAlone(false);
+           } catch (Throwable e) {
+           	e.printStackTrace();
+           	throw e;
+           }
            System.exit(0);
          }
        } catch (StrategoErrorExit exit) {
