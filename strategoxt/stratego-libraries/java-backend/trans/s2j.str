@@ -262,13 +262,14 @@ rules
        Context context = init();
        context.setStandAlone(true);
        try {
-         IStrategoTerm result;
+         IStrategoTerm result = null;
          try {
            result = context.invokeStrategyCLI(context.getStrategyCollector().getStrategyExecutor("~x_main"), "~x_name", args);
            System.out.println("Completed normally");
          } finally {
            context.getIOAgent().closeAllFiles();
          }
+         
          if (result == null) {
            System.err.println("~x_name" + (TRACES_ENABLED ? ": rewriting failed, trace:" : ": rewriting failed"));
            context.printStackTrace();
@@ -277,10 +278,9 @@ rules
          } else {
            System.out.println("Result: " + result);
            try {
-           context.setStandAlone(false);
-           } catch (Throwable e) {
-           	e.printStackTrace();
-           	throw e;
+            context.setStandAlone(false);
+           } catch(Throwable t) {
+           	t.printStackTrace();
            }
            System.exit(0);
          }
