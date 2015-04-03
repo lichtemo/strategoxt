@@ -277,11 +277,13 @@ rules
            System.exit(1); 
          } else {
            System.out.println("Result: " + result);
+           
            try {
-            context.setStandAlone(false);
-           } catch(Throwable t) {
-           	t.printStackTrace();
+      		 context.setStandAlone(false);
+           } catch ( Throwable tw) {
+           	tw.printStackTrace();
            }
+           
            System.exit(0);
          }
        } catch (StrategoErrorExit exit) {
@@ -311,7 +313,7 @@ rules
    //  public static Strategy getMainStrategy() { // used by SSL_EXT_java_call
    //    return x_main.instance;
    //  }
-    ]|
+    ]| 
     where
       <get-config> "-m" <+ not(<get-config> "--library")
     with
