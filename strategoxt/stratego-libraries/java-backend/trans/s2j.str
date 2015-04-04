@@ -265,9 +265,10 @@ rules
          IStrategoTerm result = null;
          try {
            result = context.invokeStrategyCLI(context.getStrategyCollector().getStrategyExecutor("~x_main"), "~x_name", args);
-           System.out.println("Completed normally");
+           System.out.println("Completed normally with result " + result);
          } finally {
            context.getIOAgent().closeAllFiles();
+           System.out.println("All files closed");
          }
          
          if (result == null) {
@@ -276,8 +277,7 @@ rules
            context.setStandAlone(false);
            System.exit(1); 
          } else {
-           System.out.println("Result: " + result);
-           
+           System.out.println("Successful Result: " + result);
            try {
       		 context.setStandAlone(false);
            } catch ( Throwable tw) {
@@ -287,10 +287,14 @@ rules
            System.exit(0);
          }
        } catch (StrategoErrorExit exit) {
+       	 System.out.println("Stratego Error Exit: " + exit.getClass());
+       	 exit.printStackTrace();
          context.setStandAlone(false);
          System.err.println(exit.getLocalizedMessage());
          System.exit(exit.getValue());
        } catch (StrategoExit exit) {
+       	 System.out.println("StrategoExit: " + exit.getClass());
+       	 exit.printStackTrace();
          context.setStandAlone(false);
          System.exit(exit.getValue());
        }
