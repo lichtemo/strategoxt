@@ -5,14 +5,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 >
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.metaborg</groupId>
-  <artifactId>org.metaborg.maven.parent2</artifactId>
+  <groupId>org.metaborg-temp</groupId>
+  <artifactId>org.metaborg.maven.parent</artifactId>
   <version>1.3.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Maven parent POM for all projects</description>
   <url>https://github.com/metaborg/spoofax-deploy</url>
-
+  
   <parent>
     <groupId>org.metaborg</groupId>
     <artifactId>org.metaborg.maven.parent</artifactId>
