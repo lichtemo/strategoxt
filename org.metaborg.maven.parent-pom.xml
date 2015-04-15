@@ -12,6 +12,14 @@
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Maven parent POM for all projects</description>
   <url>https://github.com/metaborg/spoofax-deploy</url>
+  
+  <repositories>
+     <repository>
+       <id>spoofax-temp</id>
+       <url>http://download.spoofax.org/update/artifacts/releases/</url>
+     </repository>
+   </repositories>
+  
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
