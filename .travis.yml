@@ -5,4 +5,7 @@ env:
     - JAVA_OPTS="-Xmx2048m -Xss32m"
     - MAVEN_OPTS="-Xmx2048m -Xss32m"
     - ANT_OPTS="-Xmx2048m -Xss32m"
-script: "./strategoxt/bootstrap.sh"
+script:
+  - sudo rm /etc/mavenrc
+  - export MAVEN_OPTS="-Xmx2048m -Xss32m"
+  - "./strategoxt/bootstrap.sh"
