@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>install-parent</artifactId>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.metaborg</groupId>
+		<artifactId>org.metaborg.maven.parent</artifactId>
+		<version>1.3.0-SNAPSHOT</version>
+		<relativePath>../org.metaborg.maven.parent-pom.xml</relativePath>
+	</parent>
+
+    <build>
+      <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-install-plugin</artifactId>
+      <executions>
+        <execution>
+          <phase>install</phase>
+          <goals>
+            <goal>install-file</goal>
+          </goals>
+          <configuration>
+            <file>../org.metaborg.maven.parent-pom.xml</file>
+            <pomFile>../org.metaborg.maven.parent-pom.xml</pomFile>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
+</plugins>
+</build>
+
+</project>
