@@ -1,6 +1,11 @@
 before_install:
   - git submodule update --init --recursive
 
+before_script:
+  - sudo service postgresql stop
+  - sudo service mysql stop
+  - sudo service memcached stop
+
 jdk:
   - openjdk7
 env:
